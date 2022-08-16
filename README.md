@@ -18,3 +18,16 @@
 - Result
 <img width="374" alt="Screenshot 2022-08-16 at 12 16 02" src="https://user-images.githubusercontent.com/69306840/184867757-0e07a5b7-ceff-484a-915f-a36eb77b9e1f.png">
 
+### Nginx as reverse proxy
+- Firstly ensure you are inside your vm. 
+- Once inside run the following commands:
+- `sudo nano /etc/nginx/sites-available/default`- 
+- The file will then open for editing
+- Within the server block you will find `location/` block, in here you need to replace the content inide with `proxy_pass http://localhost:8080;` 
+- Now save changes made using ctrl x and then y
+- To ensure syntax is correct run `sudo nginx -t` 
+- If there were no errors after running the above command you need to run sudo `systemctl restart nginx` to restart nginx
+- Then run npm start and you should see this message 'Your app is ready and listening on port 3000'
+- Go to your browser and your app should be running 
+
+
